@@ -20,11 +20,11 @@ function setup(){
   for (let i = 0; i < training.length; i++) {
     let x = random(xmin, xmax);
     let y = random(ymin, ymax);
-    let answer = 1;
-    if (y < f(x)) answer = -1;
+    let bais = 1;
+    if (y < f(x)) bais = -1;
     training[i] = {
       input: [x, y, 1],
-      output: answer
+      output: bais
     };
   }
 }

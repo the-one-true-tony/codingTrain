@@ -34,8 +34,11 @@ function togglePlaying() {
 function draw(){
   background(51);
 
+  var vol = amp.getLevel();
+  var diam = map(vol, 0, 1, 30, 200);
+
   fill(255, 0, 255);
-  ellipse(width/2, height/2, 100, 100)
+  ellipse(width/2, height/2, diam, diam)
   song.setVolume(sliderPan.value());
   song.rate(sliderRate.value());
 }

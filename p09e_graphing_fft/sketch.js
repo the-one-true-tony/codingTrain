@@ -21,7 +21,7 @@ function setup(){
   button = createButton('toggle');
   button.mousePressed(toggleSong);
   song.play();
-  fft = new p5.FFT(0.8, 256);
+  fft = new p5.FFT(0.75, 256);
   w = width /64;
 }
 
@@ -30,7 +30,7 @@ function spreadSpectrum(n){
   let mid = n.length/2;
   for (var i = 0; i < n.length; i++) {
     if(i % 2 === 1){
-      newSpec[mid+i] = n[i];
+      newSpec[mid+i-3] = n[i];
     } else{
       newSpec[mid-(i/2)] = n[i];
     }
@@ -49,7 +49,7 @@ function draw(){
   for (var i = 0; i < spectrum.length; i++) {
     let angle = map(i, 0, spectrum.length, 0, 360);
     let amp = spectrum[i];
-    let r = map(amp, 0, 256, 100, 120);
+    let r = map(amp, 0, 256, 70, 120);
     let x = r * cos(angle);
     let y = r * sin(angle);
     strokeWeight(3);

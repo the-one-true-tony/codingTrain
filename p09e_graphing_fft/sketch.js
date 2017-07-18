@@ -27,14 +27,13 @@ function setup(){
 
 function spreadSpectrum(n){
   let newSpec = new Array(n.length);
-  let direction = true;
+  let mid = n.length/2;
   for (var i = 0; i < n.length; i++) {
-    if(direction){
-      newSpec[i] = n[i];
+    if(i % 2 === 1){
+      newSpec[mid+i] = n[i];
     } else{
-      newSpec[n.length-(1+i/2)] = n[i];
+      newSpec[mid-(i/2)] = n[i];
     }
-    direction = !direction;
   }
   return newSpec;
 }
@@ -50,7 +49,7 @@ function draw(){
   for (var i = 0; i < spectrum.length; i++) {
     let angle = map(i, 0, spectrum.length, 0, 360);
     let amp = spectrum[i];
-    let r = map(amp, 0, 256, 60, 100);
+    let r = map(amp, 0, 256, 100, 120);
     let x = r * cos(angle);
     let y = r * sin(angle);
     strokeWeight(3);

@@ -54,6 +54,7 @@ function draw(){
     let y = r * sin(angle);
     strokeWeight(3);
     stroke(100, 255, 255);
+    fill(255,x, 255)
     // line(0, 0, x, y);
     vertex(x,y);
     // fill(i, 255, 255);
